@@ -1,0 +1,8 @@
+/dist
+/staging
+/node_modules
+/app/vendor
+/app/bower_components
+phantomjsdriver.log
+/build
+/development
