@@ -1,0 +1,266 @@
+HTML 1991 (from SGML)
+	Simple, Forgiving
+JavaScript - 1995
+	Object-like language
+	Interpreted Script Language
+1998-9 HTML4, JS, CSS2 => Dynamic HTML
+
+2001 - XML + HTML => XHTML
+	XML Strict rules for HTML
+	1 OoM better render performance
+	Lint (Verify) XHTML conformance and tell browser
+
+2004 - Apple (Konqueror => Webkit => Safari), Mozilla, Google (Webkit + Google Gears => Chrome), Opera
+	Web Hypertext Application Technology Working Group (WHAT-WG)
+	Adobe: SVG
+	Apple: Dashboard, Canvas
+	Google: Geolocation, WebDB (sqlite), localStorage
+	Mozilla: IndexDB, XmlHttpRequest (XHR/AJAX)
+
+
+	jQuery 
+		- homogenize JS on browsers (cross-platform compatible JS)
+		- Simplify syntax (but more esoteric/less code-readable)
+		- Introduced CSS Query Selectors, implied for-each loops
+
+var button = document.getElementById("myButton");
+if (MSIE) {
+	button.attachEvent("click", handlerFunction, true);
+} else {
+	button.addEventListener("click", handlerFunction, false);
+}
+
+
+Becomes =>
+
+	$("myButton").click(handlerFunction);
+
+
+2006 - Adobe donates JITC Engine (Tamarin) for Flash/ActionScript
+	AS is EcmaScript, like JavaScript
+	AS has Object-Oriented features: 
+		Inheritance
+		Typing
+		Introspection
+	JS performance >= 2-3 OoM better
+
+
+2007 - Dojo - homogenize platform, reusable widget framework
+
+~ 2009 - jQuery "wins" by popularity
+
+~2011-2012 - Higher level frameworks built on top of jQuery
+	BackboneJS (+UnderScore builds on jQuery)
+		MVC
+		Routes (page navigation)
+		Events (above and beyond jQuery/JS)
+		Single-Page Application (SPA)
+	KnockoutJS
+		Bi-directional Data Binding (M-V)
+	=> Knockback
+
+~2012	Angular (builds on jQuery)
+		MVC/MVP/MVVM
+		Routes
+		Events
+		SPA
+		Bi-directional Data Binding
+		Directives (declarative bindings, events, etc.)
+
+
+	<input type="text" ng-model="customer.firstName" ng-blur="validateFirstName()">
+
+
+	angular.controller("CustomerFormController", function($scope) {
+		$scope.customer = new Customer();
+		$scope.validateFirstName = function() {
+			//console.log("validating first name - use the form API instead");
+		};
+	});
+
+
+	http://todomvc.com
+
+ECMAScript
+	ES3 - JS as in IE5-8, NN, FF < 3 (HTML4)
+	ES4 - Added in OO features: Type, Inheritance, Introspection, Classes, ~Modules
+		Dead on Arrival
+	ES5 - HTML5 (current) JS, assumption of JITC JS; IE9, FF4+, Chrome, Safari >=2 , Opera
+	ES6 - 
+		Modules - Asynchronous Module Definition (RequireJS, CommonJS, Node's "require")
+		Classes - "proper" classes
+	ES7/ES.Next (JS.Next, (JS2 candidates))
+		Google Dart (with DartVM)
+		CoffeeScript
+		TypeScript 1.x
+		AtScript
+
+		Transpiled languages - compiled/translated to JS/ES5
+		Traceur - pluggable transpiler
+	
+
+Break until 10:50 CEST / 4:50 EST (US)
+
+
+DOM: Document Object Model
+	Tree view of HTML/XML/SGML nodes
+
+
+
+Lunch from 12:00 - 1:00 CEST / 6:00am-7:00am US/EST
+
+
+MVC - Model View Controller
+MVVM - Model View ViewModel
+MVP - Model View Presenter
+MV* - Angular is agnostic
+
+
+node install
+npm install -g http-server
+npm install -g yo
+npm install -g grunt
+npm install -g bower
+npm install -g grunt-cli
+npm install -g gulp
+
+// http://www.git-scm.com
+
+
+Quickly consider these APIs (get Wikipedia highlights):
+HTML5 APIs
+
+localStorage - key/value storage in-browser, 2.5-5mb
+WebDB - SQL in browser
+REST - 
+Comet / CometBus - for server-side push
+Canvas - bitmap drawing API
+SVG - Vector drawing API
+Audio API - playing, manipulating
+Video API - playing
+Geolocation - find user's location
+IndexDB
+
+Multi-user Quiz app
+
+
+
+
+
+
+
+
+http://localhost:8080/rest/customers
+GET all customers
+POST into the collection of all customers
+DELETE all customers
+PUT update customers
+
+http://localhost:8080/rest/customers/1234 => Harry Potter	
+GET Harry
+POST Harry's record
+DELETE Harry
+PUT update Harry
+
+localStorage
+Geolocation--
+SVG - Vector graphics - replace Flash
+Canvas - dashboard 
+
+window.localStorage.getItem("customers")
+window.localStorage.setItem("customers", JSON.stringify(array))
+window.localStorage.removeItem("customers")
+window.localStorage.keys()
+window.localStorage.keys().length;
+window.localStorage.clear();
+
+window.sessionStorage.getItem("customers")
+window.sessionStorage.setItem("customers", JSON.stringify(array))
+window.sessionStorage.removeItem("customers")
+window.sessionStorage.keys()
+window.sessionStorage.keys().length;
+window.sessionStorage.clear();
+
+base64 encode/decode
+JSON.stringify/JSON.parse
+
+Typescript
+	JS
+	Classes
+	Modules
+	Types
+TS2 (AtScript)
+	Introspection
+	Annotation
+
+// POJO => JavaBean
+@Entity
+@Table(name="CUST")
+public class Customer implements Serializable{
+	@Id
+	@GeneratedType(strategy=IDENTITY)
+	private Long customerId = -1;
+
+	private String firstName, lastName, phoneNumber;
+
+	// CTOR
+
+	// getters + setters
+
+	// toString
+
+	// equals + hashCode
+
+}
+
+Typescript:
+Types
+Encapsulation
+Private/Public
+Inheritance
+Interfaces
+Getter/Setters
+
+Later:
+Modules
+Generics
+Mixins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
