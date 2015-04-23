@@ -1,0 +1,15 @@
+class Customer {
+	customerId : string;
+	firstName : string;
+	lastName : string;
+	phoneNumber : string;
+}
+
+
+function hello(cust : Customer) {
+	return "Hello, " + cust.firstName;
+}
+
+var divContent = document.getElementById("content");
+
+divContent.innerHTML = hello("Harry");
