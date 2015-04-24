@@ -375,6 +375,20 @@ Bootstrap
 
 
 
+$scope, $rootScope (all $vars) are "Dependency Injection"
+
+
+
+$rootScope - parent of all controller scopes in the ngApp
+$broadcast - send a copy of the event to all child scopes
+$emit - send an event from child scope to parent
+$on - listen for an event
+
+$watch
+
+
+
+Break until 10:35
 
 
 
