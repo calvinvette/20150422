@@ -7,6 +7,10 @@ angular.module('tApp', ['ngRoute'])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/QuestionEditor', {
+        templateUrl: 'scripts/controllers/QuestionEditor/QuestionEditor.html',
+        controller: 'QuestionEditor'
+      })
 	  .when('/Login', {
         templateUrl: 'scripts/controllers/LoginRegistration/LoginRegistration.html',
         controller: 'LoginRegistration'
