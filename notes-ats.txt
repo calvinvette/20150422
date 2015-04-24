@@ -393,8 +393,46 @@ Break until 10:35
 Lunch until 12:55
 
 
+<tr ng-enter="save()" ng-escape="revert()">
+
+</tr>
 
 
+Break until 3:20
+
+
+
+HTML5 Form Field Types
+text (default)
+date/time/datetime/month/week
+search
+tel
+number
+email
+color
+url
+
+HTML5 Form Validation
+field-by-field validity
+form-level validity >= sum(all fields)
+min/max
+minlength, maxlength
+type-constrained
+pattern (REGEX)
+required
+
+
+
+ng-form as a superset of HTML5 form field validation
+novalidate
+	
+
+$pristine
+$touched
+$dirty
+
+tmo@widex.com
+calvin.vette@nextgeneducation.com
 
 
 
