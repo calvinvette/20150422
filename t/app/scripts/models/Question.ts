@@ -2,7 +2,7 @@ class Question {
 	private _author : string;
 	private _lastEditDate : Date;
 	private _editHistory : Object[]; // Change to an EditLog class array
-  private _questionId : number; // Primary Key
+  private _questionId : number = -1; // Primary Key
 
 
 	constructor( public questionText : string, public answerText : string, public category : string,

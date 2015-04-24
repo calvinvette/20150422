@@ -9,6 +9,14 @@ angular.module("tApp").controller("QuestionEditor", function($scope, QuestionSer
   $scope.categories = QuestionService.getCategoryList();
   $scope.questions = QuestionService.getQuestions();
 
+  $rootScope.$on("QuestionDeletedEvent", function(data) {
+    $scope.questions = QuestionService.getQuestions();
+  });
+
+  //$rootScope.$on("QuestionAddedEvent", function(data) {
+  //  $scope.questions = QuestionService.getQuestions();
+  //});
+
   $scope.currentlyEditingQuestion = new Question();
   $scope.isEditing = function(question:Question) {
     if (question.questionId == $scope.currentlyEditingQuestion.questionId) {
@@ -28,7 +36,11 @@ angular.module("tApp").controller("QuestionEditor", function($scope, QuestionSer
       case 13: // Enter Key - save
         angular.extend(question, $scope.currentlyEditingQuestion);
         $scope.currentlyEditingQuestion = new Question();
-        $rootScope.$broadcast("QuestionUpdatedEvent", question);
+        if (question.questionId <= 0) {
+          $rootScope.$broadcast("QuestionAddRequestEvent", question);
+        } else {
+          $rootScope.$broadcast("QuestionUpdatedEvent", question);
+        }
         break;
       case 27: // Escape Key - revert
         $scope.currentlyEditingQuestion = new Question();
@@ -37,6 +49,14 @@ angular.module("tApp").controller("QuestionEditor", function($scope, QuestionSer
     }
   };
 
+  $scope.delete = function(question) {
+    $rootScope.$broadcast("QuestionDeleteRequestEvent", question);
+  };
+
+  $scope.addQuestion = function() {
+    $scope.currentlyEditingQuestion = new Question();
+    $scope.questions.push($scope.currentlyEditingQuestion);
+  };
 
 
 });

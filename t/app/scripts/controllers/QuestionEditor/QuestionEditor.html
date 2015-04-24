@@ -1,5 +1,5 @@
 <div class="container">
-  <table>
+  <table class="table table-striped">
     <tr>
       <th>Question</th>
       <th>Answer</th>
@@ -7,7 +7,11 @@
       <th>Points</th>
       <th>Comments/Context</th>
     </tr>
-    <tr ng-repeat="question in questions" ng-dblclick="setEditing(question, $index)" ng-keyup="keyHandler($event, question)">
+    <tr ng-repeat="question in questions track by question.questionId"
+        ng-dblclick="setEditing(question, $index)"
+        ng-keyup="keyHandler($event, question)"
+
+      >
       <td>
         <span ng-hide="isEditing(question)">
           {{question.questionText}}
@@ -47,6 +51,12 @@
         <span ng-show="isEditing(question)">
            <input ng-model="currentlyEditingQuestion.contextNotes"/>
         </span>
+      </td>
+      <td><button ng-click="delete(question)"><span class="glyphicon glyphicon-trash"></span></button></td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <button ng-click="addQuestion()"><span class="glyphicon glyphicon-plus"></span></button>
       </td>
     </tr>
   </table>

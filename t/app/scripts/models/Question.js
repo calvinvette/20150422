@@ -5,6 +5,7 @@ var Question = (function () {
         this.category = category;
         this.pointValue = pointValue;
         this.contextNotes = contextNotes;
+        this._questionId = -1; // Primary Key
         this.equals = function (otherQuestion) {
             if (this === otherQuestion) {
                 return true;
