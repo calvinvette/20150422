@@ -1,0 +1,18 @@
+<div class="container">
+  <table>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Category</th>
+      <th>Points</th>
+      <th>Comments/Context</th>
+    </tr>
+    <tr ng-repeat="question in questions">
+      <td>{{question.questionText}}</td>
+      <td>{{question.answerText}}</td>
+      <td>{{question.category}}</td>
+      <td>{{question.pointValue}}</td>
+      <td>{{question.contextNotes}}</td>
+    </tr>
+  </table>
+</div>
