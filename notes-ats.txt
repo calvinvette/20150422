@@ -224,7 +224,163 @@ Getter/Setters
 Later:
 Modules
 Generics
-Mixins
+Mixins (future: Annotations)
+=> Arrow functions
+
+
+
+Build system:
+IDE agnostic
+Continuous Integration - Jenkins/Hudson, TeamCity, Rational BuildForge, MS???
+CI+TDD
+	Unit Tests on Developer machine before check-in
+	CI:
+		Integrated Build
+
+		Functional:
+		Unit Tests (yours + all other developers)
+		Progressive Integration testing
+			U1+U2 (mock U3+U4), (driver for U1) + U2+U3 + (mock U4), (driver for U1+U2) + U3+U4
+			Then U1+U2+U3, U2+U3+U4
+		End-To-End (e2e)
+			U1+U2+U3+U4
+	
+		Performance
+		Scalability
+		HA/FO
+
+		Security
+
+
+Linting
+	HTML => XHTML
+	TS/JS
+	JSON/XML data
+	CSS
+Typescript compilation
+Concatenation
+	JS: all-of-our-files-together.js, all-3rd-party-vendor-supplied.js
+	CSS: all-of-our-files-together.css, all-3rd-party-vendor-supplied.css
+	Images->Sprites
+Minification (not quite obfuscation)
+	JS (including transpiled TS) 	//MyApp.min.js, MyApp.min.map, MyApp.js
+	CSS => foo.min.css, foo.map.css, foo.css
+	Image => PNG => 80% JPG, lossy PNG, flattened PNG
+	Font files???
+	Audio/Video files
+		Also, do we transcode?
+Unit Test
+Integration/E2E?
+Deployment - 1 step deploy to test server, staging server, prod server, etc. (Joel's Tests)
+
+
+
+Windows: git command line client (try: http://git-scm.com, say "yes" to the red warning screen")
+
+NodeJS Install (nodejs.org)
+npm install -g http-server
+npm install -g typescript
+npm install -g yo   				//(short for "yeoman", wizard/generator for new project)
+npm install -g grunt grunt-cli			// build tool (similar to Makefile, pom.xml, .sln, build.xml)
+npm install -g gulp				// build tool (similar to Makefile, pom.xml, .sln, build.xml)
+npm install -g bower				// Client-side JS dependencies
+
+
+
+yo install a wizard/generator - search for the right one or ones
+
+mkdir a new directory and cd into (you don't know if the wizard will create one for you or dump stuff in the CWD)
+
+yo create a new project (or two, or three, or 100)
+	yo mygen:subgen might be available depending on the generator
+
+	yo angular:controller
+	yo angular:directive
+
+npm install
+bower install
+
+
+IE8:
+	html5shiv - articles, sections, navs, headers, footers support for IE8
+	es5shim	- "Monkey Patches" IE8 JavaScript to be (mostly) ES5 compliant
+	json3 - safe JSON.parse and JSON.stringify library support for IE8
+	css3pie - css3 border radius, drop-shadows, and other CSS3 features to IE8
+	respond.js (RWD) - adds CSS Media Query support for Responsive Web Design to IE8
+	excanvas - Converts Canvas API calls to MS VML
+	jquery 1.x - Supports IE8
+	angular <=1.2 - Supports IE8
+
+IE9:
+	jquery >= 2
+	angular >= 1.3
+
+
+
+grunt --tasks 
+	-Examines Gruntfile.js and discovers all declared tasks
+	"default" is run by undeclared "grunt"
+	"grunt build" executes the build task
+	"grunt test" executes the test task
+
+
+Lunch from 12:10 - 1:10
+
+
+
+Actors/ User Stories:
+	Player
+		Login (email as username, password)
+		Registration (email, name, username, displayname, hometown, homecountry)  // passport, passport-strategy
+		Get Score
+		Answer Question
+		See Current Question
+		See Current Board (categories, point values)
+		Select next question
+	Quizmaster extends Player
+		Send out Current Question
+		Select Player to Answer (based on list of who pressed button first)
+		Verify correct/incorrect answer (Defer to judges)
+	Judge extends Player or Interface/Mixin
+		See Current Question
+		See the Answer
+		Up-Yes/Down-No (consensus carries correct/incorrect answer)
+	Question Editor extends Player or Interface/Mixin
+		See the list of categories
+		See the questions in category
+		Add/Edit/Remove category
+		Add/Edit/Remove question
+
+		Question:
+			Question : string
+			Answer : string
+			Point Value : number
+			Memo/Context : string // other information about the question
+
+
+
+
+
+Bootstrap
+	Best Practices on getting older browsers (<=IE8) to conform to HTML5, CSS3+RWD, JS/ES5, etc.
+	CSS Reset - get all browsers to the same starting place.
+	Grid System based on 12 columns 12x1, 2x6, 3x4, 4x3, 2x3+1x6
+		Instead of using Tables for layout
+	Responsive Web Design - screen size, rotation (landscape vs. portrait), pixel density, form factor
+	Components/Widgets - navbars, tab, datepicker
+	In CSS & JS
+
+
+"Same bat-time, same bat-channel" - the old 1960s Batman TV show.
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,7 @@
+/** JSDoc 
+
+*/
+
 class Customer implements Person {
 	birthDate : Date;
 	fullName : string;
