@@ -7,12 +7,47 @@
       <th>Points</th>
       <th>Comments/Context</th>
     </tr>
-    <tr ng-repeat="question in questions">
-      <td>{{question.questionText}}</td>
-      <td>{{question.answerText}}</td>
-      <td>{{question.category}}</td>
-      <td>{{question.pointValue}}</td>
-      <td>{{question.contextNotes}}</td>
+    <tr ng-repeat="question in questions" ng-dblclick="setEditing(question, $index)" ng-keyup="keyHandler($event, question)">
+      <td>
+        <span ng-hide="isEditing(question)">
+          {{question.questionText}}
+        </span>
+        <span ng-show="isEditing(question)">
+          <input ng-model="currentlyEditingQuestion.questionText"/>
+        </span>
+      </td>
+      <td>
+        <span ng-hide="isEditing(question)">
+        {{question.answerText}}
+          </span>
+        <span ng-show="isEditing(question)">
+           <input ng-model="currentlyEditingQuestion.answerText"/>
+        </span>
+      </td>
+      <td>
+        <span ng-hide="isEditing(question)">
+        {{question.category}}
+          </span>
+        <span ng-show="isEditing(question)">
+           <input ng-model="currentlyEditingQuestion.category"/>
+        </span>
+      </td>
+      <td>
+        <span ng-hide="isEditing(question)">
+        {{question.pointValue}}
+          </span>
+        <span ng-show="isEditing(question)">
+           <input ng-model="currentlyEditingQuestion.pointValue"/>
+        </span>
+      </td>
+      <td>
+        <span ng-hide="isEditing(question)">
+        {{question.contextNotes}}
+          </span>
+        <span ng-show="isEditing(question)">
+           <input ng-model="currentlyEditingQuestion.contextNotes"/>
+        </span>
+      </td>
     </tr>
   </table>
 </div>
