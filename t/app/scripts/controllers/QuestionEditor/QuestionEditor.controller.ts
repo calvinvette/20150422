@@ -5,9 +5,22 @@
 // import Question = require("Question");
 // import QuestionService = require("QuestionService");
 
-angular.module("tApp").controller("QuestionEditor", function($scope, QuestionService, $rootScope) {
+angular.module("tApp").controller("QuestionEditor", function($scope, QuestionService, $rootScope, $filter) {
   $scope.categories = QuestionService.getCategoryList();
   $scope.questions = QuestionService.getQuestions();
+
+  $scope.startDate = new Date();
+  $scope.score = 1234.56;
+
+  $scope.filterCategory = "";
+  $scope.filteredQuestions = $scope.questions;
+
+  /*
+  TODO-CV - fix filter
+  $scope.$watch("filterCategory", function() {
+    $scope.filteredQuestions = $filter('CategoryFilter')($scope.questions, $scope.filterCategory);
+  });
+  */
 
   $rootScope.$on("QuestionDeletedEvent", function(data) {
     $scope.questions = QuestionService.getQuestions();
@@ -55,7 +68,40 @@ angular.module("tApp").controller("QuestionEditor", function($scope, QuestionSer
 
   $scope.addQuestion = function() {
     $scope.currentlyEditingQuestion = new Question();
-    $scope.questions.push($scope.currentlyEditingQuestion);
+    //$scope.questions.push($scope.currentlyEditingQuestion);
+	 $rootScope.$broadcast("QuestionAddRequestEvent", $scope.currentlyEditingQuestion);
+  };
+
+  $scope.showFront = true;
+
+  $scope.swipeLeft = function(evt) {
+    console.log("Left Swipe");
+    $scope.showFront = true;
+  };
+
+  $scope.swipeRight = function(evt) {
+    console.log("Right Swipe");
+    $scope.showFront = false;
+  };
+
+  $scope.swipeUp = function(evt) {
+    console.log("Up Swipe");
+    $scope.showFront = false;
+  };
+
+  $scope.swipeDown = function(evt) {
+    console.log("Down Swipe");
+    $scope.showFront = true;
+  };
+
+  $scope.pinchIn= function(evt) {
+    console.log("Pinch in");
+    $scope.showFront = true;
+  };
+
+  $scope.pinchOut= function(evt) {
+    console.log("Pinch out");
+    $scope.showFront = false;
   };
 
 

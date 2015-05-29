@@ -1,6 +1,10 @@
 'use strict';
 // Singleton/Factory
-angular.module('tApp', ['ngRoute'])
+angular.module('tApp', [
+  'ngRoute',
+  //'ngTouch',
+  'hmTouchEvents'
+])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

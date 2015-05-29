@@ -21,21 +21,31 @@
       <span class="col-sm-2"><label for="txtEmail">Email:</label></span>
       <span class="col-sm-6"><input id="txtEmail" name="txtEmail" ng-model="email" type="email"
                                     required="required"/></span>
-      <span class="col-sm-4" ng-hide="registrationForm.txtEmail.$pristine && !registrationForm.txtEmail.touched" style="color:red">
-        <span ng-show="registrationForm.txtEmail.$error.required">The EMail Field is REQUIRED!!!</span>
-        <span ng-show="registrationForm.txtEmail.$error.email">You have to have a valid RFC-832 email address!</span>
+      <span class="col-sm-4">
+        <div ng-hide="registrationForm.txtEmail.$pristine && !registrationForm.txtEmail.touched" class="error">
+          <span ng-show="registrationForm.txtEmail.$error.required">The EMail Field is REQUIRED!!!</span>
+          <span ng-show="registrationForm.txtEmail.$error.email">You have to have a valid RFC-832 email address!</span>
+        </div>
+		<span></span>
       </span>
     </div>
     <div class="form-group">
       <span class="col-sm-2"><label for="txtUserName">User Name (for Login):</label></span>
       <span class="col-sm-6"><input id="txtUserName" name="txtUserName" ng-model="userName"
-                                    require="required" ng-minlength="4" ng-maxlength="16"
+                                    require="required" ng-minlength="4" ng-maxlength="16" 
+									title="User Name"
+									qm-form-errors="true"
         /></span>
+		<span class="col-sm-4">
+			<span></span>
+		</span>
     </div>
     <div class="form-group">
       <span class="col-sm-2"><label for="txtPassword">Password:</label></span>
       <span class="col-sm-6"><input id="txtPassword" name="txtPassword" ng-model="password" type="password"
-                                    ng-pattern="'[a-zA-Z]\\w{3,14}$'"
+                                    ng-pattern="'[a-zA-Z]\\w{3,14}$'" 
+									title="Password"
+									qm-form-errors="true"
         /></span>
     </div>
     <div class="form-group">

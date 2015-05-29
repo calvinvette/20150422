@@ -1,5 +1,39 @@
-<div class="container">
-  <table class="table table-striped">
+<div class="container"
+     hm-swipeleft="swipeLeft()"
+     hm-swiperight="swipeRight()"
+     hm-swipeup="swipeUp()"
+     hm-swipedown="swipeDown()"
+     hm-pinchin="pinchIn()"
+     hm-pinchout="pinchOut()"
+     ng-class="{panelFront : showFront, panelBack : !showFront}">
+
+  <link href="scripts/controllers/QuestionEditor/QuestionEditor.css" rel="stylesheet"/>
+  <div class="panel">
+    <div class="front card">
+
+  <table id="tblDemo" class="demo-table table">
+    <tr>
+      <td>
+        Date:
+      </td>
+      <td>{{startDate | date:'dd MMMM yyyy'}}</td>
+    </tr>
+    <tr>
+      <td>
+        Score:
+      </td>
+      <td>
+        {{score | currency}}
+      </td>
+    </tr>
+  </table>
+
+    <div class="demo-table">
+      <span>Pretend this is a Bootstrap row/col span-block table (not an HTML table)</span>
+    </div>
+
+  Filter By Category: <input ng-model="filterCategory"/><br/>
+  <table class="table table-striped" id="tblCustomers">
     <tr>
       <th>Question</th>
       <th>Answer</th>
@@ -7,7 +41,8 @@
       <th>Points</th>
       <th>Comments/Context</th>
     </tr>
-    <tr ng-repeat="question in questions track by question.questionId"
+    <!-- TODO-CV adjust $index and double-add problem, question.questionId -->
+    <tr ng-repeat="question in filteredQuestions track by $index"
         ng-dblclick="setEditing(question, $index)"
         qm-enter="save(question)"
         qm-escape="revert()"
@@ -52,7 +87,9 @@
            <input ng-model="currentlyEditingQuestion.contextNotes"/>
         </span>
       </td>
-      <td><button ng-click="delete(question)"><span class="glyphicon glyphicon-trash"></span></button></td>
+      <td>
+        <button ng-click="delete(question)"><span class="glyphicon glyphicon-trash"></span></button>
+      </td>
     </tr>
     <tr>
       <td colspan="5">
@@ -60,4 +97,15 @@
       </td>
     </tr>
   </table>
+    </div>
+
+
+    <div class="back card">
+Answer Here.
+    </div>
+
+  </div>
+
 </div>
+
+
